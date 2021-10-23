@@ -12,6 +12,8 @@ public class FinancingTests {
 	final double VALID_INCOME = 2000.00;
 	final int VALID_MONTHS = 80;
 	
+	final double VALID_SET_TOTAL_AMOUNT = 99999.99;
+	
 	final int INVALID_MONTHS = 20;
 	
 	@Test
@@ -29,10 +31,19 @@ public class FinancingTests {
 		
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			Financing f = FinancingFactory.createFinancingWithInvalidDatas();
-		});
+		});	
+	}
+	
+	@Test
+	public void setTotalAmountShouldUpdateTheValuesWhenValidData() {
+		//arrange
+		Financing f = FinancingFactory.createFinancingWithValidDatas();
 		
+		//action
+		f.setTotalAmount(VALID_SET_TOTAL_AMOUNT);
 		
-		
+		//assert
+		Assertions.assertEquals(f.getTotalAmount(), VALID_SET_TOTAL_AMOUNT);
 		
 	}
 
