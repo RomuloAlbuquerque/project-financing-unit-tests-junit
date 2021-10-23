@@ -16,16 +16,24 @@ public class FinancingTests {
 	
 	@Test
 	public void constructorShouldCreateObjectsCorrectlyWhenValidData() {
-		
-		//arrange
-		
-		//action
+	
 		Financing f = FinancingFactory.createFinancingWithValidDatas();
 		
-		//assert
 		Assertions.assertEquals(f.getTotalAmount(), VALID_TOTAL_AMOUNT);
 		Assertions.assertEquals(f.getIncome(), VALID_INCOME);
 		Assertions.assertEquals(f.getMonths(), VALID_MONTHS);
+	}
+	
+	@Test
+	public void constructorShouldThrowsIllegalArgumentExceptionWhenInvalidData() {
+		
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			Financing f = FinancingFactory.createFinancingWithInvalidDatas();
+		});
+		
+		
+		
+		
 	}
 
 }
