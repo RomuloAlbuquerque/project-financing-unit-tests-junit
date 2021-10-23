@@ -108,5 +108,19 @@ public class FinancingTests {
 			f.setMonths(INVALID_MONTHS);
 		});
 	}
+	
+	@Test
+	public void entryShouldCalculateCorrectlyTheEntryValue() {
+		//arrange
+		double entry = VALID_TOTAL_AMOUNT * 0.2;
+		Financing f = FinancingFactory.createFinancingWithValidDatas();
+		
+		//action
+		double realEntry = f.entry();
+		
+		//assert
+		Assertions.assertEquals(realEntry, entry);
+		
+	}
 
 }
