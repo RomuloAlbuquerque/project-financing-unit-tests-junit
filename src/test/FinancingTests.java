@@ -17,6 +17,7 @@ public class FinancingTests {
 	final double INVALID_INCOME = 1;
 	
 	final int VALID_MONTHS = 80;
+	final int VALID_SET_MONTHS = 81;
 	final int INVALID_MONTHS = 20;
 
 	
@@ -83,6 +84,18 @@ public class FinancingTests {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
 			f.setIncome(INVALID_INCOME);
 		});
+	}
+	
+	@Test
+	public void setMonthsShouldUpdateMonthsWhenValidData() {
+		//arrange
+		Financing f = FinancingFactory.createFinancingWithValidDatas();
+		
+		//action
+		f.setMonths(VALID_SET_MONTHS);
+		
+		//assert
+		Assertions.assertEquals(f.getMonths(), VALID_SET_MONTHS);
 	}
 
 }
