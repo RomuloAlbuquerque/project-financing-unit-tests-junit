@@ -120,7 +120,19 @@ public class FinancingTests {
 		
 		//assert
 		Assertions.assertEquals(realEntry, entry);
+	}
+	
+	@Test
+	public void quotaShouldCalculateCorrectlyTheValueQuota() {
+		//arrange
+		double quota = (VALID_TOTAL_AMOUNT - (VALID_TOTAL_AMOUNT *0.2)) / VALID_MONTHS;
+		Financing f = FinancingFactory.createFinancingWithValidDatas();
 		
+		//action
+		double realQuota = f.quota();
+		
+		//assert
+		Assertions.assertEquals(realQuota, quota);
 	}
 
 }
