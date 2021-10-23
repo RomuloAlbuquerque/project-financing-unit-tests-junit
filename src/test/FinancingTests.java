@@ -97,5 +97,16 @@ public class FinancingTests {
 		//assert
 		Assertions.assertEquals(f.getMonths(), VALID_SET_MONTHS);
 	}
+	
+	@Test
+	public void setMonthsShouldThrowsIllegalArgumentExceptionWhenInvalidMonthsData() {
+		//arrange
+		Financing f = FinancingFactory.createFinancingWithValidDatas();
+		
+		//assert with action
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			f.setMonths(INVALID_MONTHS);
+		});
+	}
 
 }
