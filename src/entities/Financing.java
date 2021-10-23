@@ -55,7 +55,5 @@ public class Financing {
 			throw new IllegalArgumentException("A parcela não pode ser maior que a metade da renda");
 		}
 	}
-	
-	
 
 }
